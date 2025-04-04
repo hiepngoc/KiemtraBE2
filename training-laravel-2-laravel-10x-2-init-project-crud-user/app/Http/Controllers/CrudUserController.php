@@ -64,8 +64,10 @@ class CrudUserController extends Controller
         $data = $request->all();
         $check = User::create([
             'name' => $data['name'],
+            'like' => $data['like'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'website' => $request->website,
         ]);
 
         return redirect("login");
@@ -119,6 +121,7 @@ class CrudUserController extends Controller
        $user->name = $input['name'];
        $user->email = $input['email'];
        $user->password = $input['password'];
+       
        $user->save();
 
         return redirect("list")->withSuccess('You have signed-in');

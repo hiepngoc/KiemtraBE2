@@ -16,6 +16,12 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" name="like" value="{{ old('like', $user->like) }}" placeholder="Sở thích" required>
+                @error('like')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
 
             <div class="mb-3">
                 <input type="password" class="form-control" name="password" placeholder="Mật khẩu (để trống nếu không đổi)">
@@ -34,6 +40,13 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="mb-3">
+        <label for="website" class="form-label">Liên kết cá nhân (Website, Facebook, LinkedIn...)</label>
+        <input type="url" class="form-control" name="website" value="{{ old('website', $user->website) }}" placeholder="Nhập URL cá nhân">
+        @error('website')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+    </div>
 
             <button type="submit" class="btn btn-primary w-100">Cập nhật</button>
 

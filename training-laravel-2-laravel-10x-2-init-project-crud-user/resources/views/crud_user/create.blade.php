@@ -18,6 +18,12 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <input type="text" class="form-control" name="like" value="{{ old('like') }}" placeholder="Sở thích" required>
+                    @error('like')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
                     <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
                     @error('password')
                         <span class="text-danger">{{ $message }}</span>
@@ -31,6 +37,12 @@
                 <div class="mb-3">
                     <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required>
                     @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <input type="url" class="form-control" name="website" value="{{ old('website') }}" placeholder="Nhập URL github">
+                    @error('website')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
