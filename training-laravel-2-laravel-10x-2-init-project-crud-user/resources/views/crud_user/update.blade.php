@@ -40,8 +40,25 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+
+            <div class="mb-3 text-center">
+                    @if("hiep.jpg")
+                    <img src="file:///D:/hiep.jpg" alt="Avatar" class="img-thumbnail" width="120">
+                    @else
+                        <img src="{{ asset('default-avatar.png') }}" alt="Default Avatar" class="img-thumbnail" width="120">
+                    @endif
+                </div>
+
+                <!-- Upload Avatar mới -->
+                <div class="mb-3">
+                    <label for="avatar" class="form-label">Chọn ảnh đại diện mới (nếu có)</label>
+                    <input type="file" class="form-control" name="avatar" accept="image/*">
+                    @error('avatar')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
             <div class="mb-3">
-        <label for="website" class="form-label">Liên kết cá nhân (Website, Facebook, LinkedIn...)</label>
+        <label for="website" class="form-label">Liên kết github</label>
         <input type="url" class="form-control" name="website" value="{{ old('website', $user->website) }}" placeholder="Nhập URL cá nhân">
         @error('website')
             <span class="text-danger">{{ $message }}</span>

@@ -11,6 +11,7 @@
                 <th>#</th>
                 <th>Username</th>
                 <th>Email</th>
+                <th>Avatar</th>
                 <th>Thao tác</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+                <td><img src="{{asset('avatar/'.$user->avatar)}}" with="70px" height="70px" alt="Avatar"></td>
                 <td>
                     <a href="{{ route('user.updateUser', ['id' => $user->id]) }}">Edit</a> |
                     <a href="{{ route('user.readUser', ['id' => $user->id]) }}">View</a> |

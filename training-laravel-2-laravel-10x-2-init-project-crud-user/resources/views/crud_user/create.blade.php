@@ -40,6 +40,14 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                
+                <div class="mb-3">
+        <label for="avatar" class="form-label">Ảnh đại diện</label>
+        <input type="file" class="form-control" name="avatar" accept="image/*">
+        @error('avatar')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+    </div>
                 <div class="mb-3">
                     <input type="url" class="form-control" name="website" value="{{ old('website') }}" placeholder="Nhập URL github">
                     @error('website')

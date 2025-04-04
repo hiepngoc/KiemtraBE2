@@ -62,11 +62,18 @@ class CrudUserController extends Controller
         ]);
 
         $data = $request->all();
+
+        $avatarPath = null;
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatars', 'public');
+        }
+        
         $check = User::create([
             'name' => $data['name'],
             'like' => $data['like'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'avatar' => $avatarPath,
             'website' => $request->website,
         ]);
 
@@ -119,9 +126,11 @@ class CrudUserController extends Controller
 
        $user = User::find($input['id']);
        $user->name = $input['name'];
+       $user->like = $input['like'];
        $user->email = $input['email'];
        $user->password = $input['password'];
-       
+       $user->avatar = $input['avatar'];
+       $user->website = $input['website'];
        $user->save();
 
         return redirect("list")->withSuccess('You have signed-in');
